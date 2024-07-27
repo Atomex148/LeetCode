@@ -19,7 +19,7 @@ public:
                 resultStr[i + minLen] = word1[i];
             }
         }
-        else if (word2.length() > minLen) {
+        else {
             for (int i = minLen; i < word2.length(); i++) {
                 resultStr[i + minLen] = word2[i];
             }
