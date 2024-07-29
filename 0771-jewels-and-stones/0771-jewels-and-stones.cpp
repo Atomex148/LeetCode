@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numJewelsInStones(string jewels, string stones) {
-        map<char, int> jewelsMap;
+        unordered_map<char, int> jewelsMap;
         int counter = 0;
 
         for (char ch : jewels) {
