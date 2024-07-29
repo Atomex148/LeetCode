@@ -1,20 +1,20 @@
 class Solution {
 public:
     int maxNumberOfBalloons(string text) {
-        unordered_map<char, int> balloon = { {'b', 1}, {'a', 1}, {'l', 2}, {'o', 2}, {'n', 1} }, word;
+        unordered_set<char> balloon = { 'b', 'a', 'l', 'o', 'n'};
+        unordered_map<char, int> word;
 
         for (char ch : text) {
-            word[ch] += 1;
+            if (balloon.find(ch) != balloon.end()) {
+                word[ch] += 1;
+            }
         }
 
-        int number_of_baloons = numeric_limits<int>::max();
-
-        for (pair<char, int> ch : balloon) {
-            int cur_number_of_baloons = word[ch.first] / balloon[ch.first];
-            if (cur_number_of_baloons < 1) return 0;
-            else if (cur_number_of_baloons < number_of_baloons) number_of_baloons = cur_number_of_baloons;
+        if (word.find('b') != word.end() && word.find('a') != word.end() && word.find('l') != word.end()
+            && word.find('o') != word.end() && word.find('n') != word.end()) {
+            return min({ word['b'], word['a'], word['l'] / 2, word['o'] / 2, word['n'] });
         }
 
-        return number_of_baloons;
+        return 0;
     }
 };
