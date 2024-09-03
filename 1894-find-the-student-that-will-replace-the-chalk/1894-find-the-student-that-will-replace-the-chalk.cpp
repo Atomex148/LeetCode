@@ -9,7 +9,7 @@ public:
             chalk_sum += chalk[i];
         }
 
-        while (k > chalk_sum) k -= chalk_sum;
+        k = k % chalk_sum;
 
         while (true) {
             index = index % emount_of_students;
